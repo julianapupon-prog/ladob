@@ -161,6 +161,55 @@ footer .cx{font-size:clamp(90px,19vw,320px);margin:0;color:var(--red)}
 .panel{position:fixed;right:16px;top:70px;z-index:41;width:min(380px,calc(100vw - 32px));max-height:70vh;overflow:auto;background:var(--paper);color:var(--ink);padding:8px 16px 12px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6)}
 .panel[hidden]{display:none}.panel h4{margin:12px 0;font-size:36px}
 .pn{padding:10px 0;border-top:1px solid rgba(11,11,11,.15);font-size:14px}.pn b{display:block;font-size:11px;color:var(--red);text-transform:uppercase;letter-spacing:.07em}
+/* minha coleção: parede, prateleiras de acrílico e toca-discos */
+.colbar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.addf{display:flex;flex-wrap:wrap;gap:12px;align-items:end;flex:1 1 520px}
+.addf label{display:grid;gap:6px;flex:1 1 200px}
+.addf input{height:52px;border:0;border-radius:0;padding:0 14px;font:600 17px "Archivo",system-ui,sans-serif;background:#fff;color:var(--ink)}
+.addf input::placeholder{color:#9a968f}
+.addf .btn{background:var(--red);color:#fff;height:52px}
+.tools{display:flex;gap:10px;flex-wrap:wrap}.tools .btn{height:52px}
+.wallc{--cw:150px;display:grid;gap:clamp(44px,5vw,64px);margin-bottom:clamp(56px,7vw,96px)}
+.lrow{position:relative;display:flex;gap:18px;padding:0 clamp(10px,2vw,28px);min-height:calc(var(--cw) + 62px)}
+.ledge{position:absolute;left:0;right:0;top:calc(var(--cw) - 8px);height:14px;z-index:3;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.22));border-top:1px solid rgba(255,255,255,.95);box-shadow:0 16px 22px -10px rgba(0,0,0,.5);pointer-events:none}
+.ledge::after{content:"";position:absolute;left:12px;right:12px;top:14px;height:3px;background:var(--ink)}
+.ledge i{position:absolute;top:-2px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9d8f,var(--red) 45%,#9e1408)}
+.ledge i:first-child{left:-8px}.ledge i:last-child{right:-8px}
+.lp{position:relative;flex:none;width:calc(var(--cw)*1.42)}
+.lpb{position:relative;display:block;width:100%;height:var(--cw);border:0;padding:0;background:none}
+.lpd{position:absolute;left:calc(var(--cw)*.42);top:calc(var(--cw)*.03);width:calc(var(--cw)*.94);aspect-ratio:1;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.lp .vin{animation-play-state:paused}.lp .vin svg{filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.lpb:hover .lpd,.lpb:focus-visible .lpd{transform:translateX(14%) rotate(40deg)}
+.lp.out .lpd{visibility:hidden}
+.cv{position:absolute;left:0;top:0;width:var(--cw);height:var(--cw);display:flex;flex-direction:column;justify-content:space-between;padding:10px;text-align:start;overflow:hidden;box-shadow:0 18px 26px -12px rgba(0,0,0,.6);transition:transform .3s}
+.cv .meta{font-size:10px;line-height:1.2}
+.cv b{line-height:.88;overflow-wrap:anywhere}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lpb:hover .cv{transform:translateY(-5px)}
+.lp.out .cv::after{content:"♪ Na vitrola";position:absolute;right:6px;top:6px;z-index:2;background:var(--red);color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 6px}
+.cap{margin:24px 0 0;font-size:12px;line-height:1.3;color:rgba(255,255,255,.8);width:var(--cw)}
+.cap b,.cap span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cap b{color:#fff;text-transform:uppercase;letter-spacing:.04em}
+.x{display:none;position:absolute;top:-12px;left:-12px;z-index:5;width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:var(--ink);color:#fff;font-size:20px;line-height:1}
+.wallc.edit .x{display:grid;place-items:center}.wallc.edit .cv{outline:2px dashed rgba(255,255,255,.7);outline-offset:4px}
+.lempty{color:rgba(255,255,255,.85);margin:0;padding-top:calc(var(--cw)*.4);font-weight:600}
+.deckc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center}
+.tt{position:relative;aspect-ratio:1.35;width:100%;max-width:700px}
+.tt svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tt .body{filter:drop-shadow(0 34px 40px rgba(0,0,0,.45))}.tt .armv{pointer-events:none;z-index:2}
+.pd,.mtx{position:absolute;left:6.67%;top:9%;width:60.74%;aspect-ratio:1}
+.pd .vin{animation-duration:1.8s;animation-play-state:paused}.tt.on .pd .vin{animation-play-state:running}
+.mtx{display:grid;place-items:center;text-align:center;color:rgba(246,244,239,.55);pointer-events:none;font-size:11px}
+.tt.has .mtx{display:none}
+#armg{transform-box:view-box;transform-origin:1170px 170px;transition:transform .8s cubic-bezier(.5,0,.3,1)}
+.tt.on #armg{transform:rotate(33deg)}
+#led{fill:#4a0d07;transition:fill .3s}.tt.on #led{fill:var(--red)}
+.np h3{font-size:clamp(52px,6vw,100px);margin:8px 0 10px;overflow-wrap:anywhere}
+#npa{font-size:22px;font-weight:800;font-stretch:85%;margin:0}
+#npf{color:var(--mute);margin:10px 0 24px;min-height:1.5em}
+#npstop{background:#fff;color:var(--blue)}
+.fly{position:fixed;z-index:50;pointer-events:none}
+@media(max-width:860px){.deckc{grid-template-columns:minmax(0,1fr)}.lrow{gap:14px}}
+@media(prefers-reduced-motion:reduce){.lpd,.cv,#armg{transition:none}}
 /* reveal */
 .rv{opacity:0;transform:translateY(46px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -180,7 +229,7 @@ footer .cx{font-size:clamp(90px,19vw,320px);margin:0;color:var(--red)}
 <body>
 <header id="hd">
   <a class="logo cx" href="#topo">Lado B</a>
-  <nav class="meta"><a href="#prateleira">Prateleira</a><a href="#radar">Pra você</a><a href="#vitrine">Vitrine</a><a href="#onde">Onde ouvir</a><a href="#agenda">Agenda</a></nav>
+  <nav class="meta"><a href="#prateleira">Prateleira</a><a href="#colecao">Coleção</a><a href="#radar">Pra você</a><a href="#vitrine">Vitrine</a><a href="#onde">Onde ouvir</a><a href="#agenda">Agenda</a></nav>
   <button class="bell" id="bell" aria-label="Avisos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><b id="badge"></b></button>
 </header>
 <div class="panel" id="panel" hidden><h4 class="cx">Avisos</h4><div id="plist"></div></div>
@@ -221,6 +270,43 @@ footer .cx{font-size:clamp(90px,19vw,320px);margin:0;color:var(--red)}
     <ul class="tracks" id="tracks"></ul>
     <p class="why" id="w"></p>
    </div>
+  </div>
+ </div>
+</section>
+
+<section class="band s-blue" id="colecao">
+ <div class="wrap">
+  <div class="mrow meta rv"><div><b>Minha coleção</b><br><span id="cn"></span></div><div>Os discos de verdade, em casa</div><div>Clique numa capa</div><div>Ela vai pro toca-discos</div></div>
+  <h2 class="cx giant rv" style="font-size:clamp(70px,12vw,210px)">Minha coleção</h2>
+  <div class="colbar rv">
+   <form class="addf" id="addf" autocomplete="off">
+    <label><span class="meta">Banda / artista</span><input name="a" required maxlength="60" placeholder="Fleetwood Mac"></label>
+    <label><span class="meta">Disco</span><input name="t" required maxlength="80" placeholder="Rumours"></label>
+    <button class="btn">+ Pôr na prateleira</button>
+   </form>
+   <div class="tools"><button class="btn ghost" id="edc" type="button" aria-pressed="false">Editar</button><button class="btn ghost" id="cpy" type="button">Copiar lista</button></div>
+  </div>
+  <div class="wallc" id="wallc"></div>
+  <div class="deckc">
+   <div class="tt" id="tt">
+    <svg class="body" viewBox="0 0 1350 1000" aria-hidden="true">
+     <rect width="1350" height="1000" rx="22" fill="#0b0b0b"/><rect x="10" y="10" width="1330" height="980" rx="16" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2"/>
+     <circle cx="500" cy="500" r="440" fill="#161616"/><circle cx="500" cy="500" r="440" fill="none" stroke="#2c2c2c" stroke-width="6" stroke-dasharray="4 14"/>
+     <circle cx="500" cy="500" r="412" fill="#1e1e1e"/><circle cx="500" cy="500" r="12" fill="#bdb8ae"/>
+     <circle cx="1170" cy="170" r="70" fill="#151515" stroke="#2c2c2c" stroke-width="4"/>
+     <rect x="1110" y="880" width="120" height="56" rx="6" fill="#1a1a1a" stroke="#333" stroke-width="3"/><text x="1170" y="918" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="28" fill="#f6f4ef">33</text>
+     <circle id="led" cx="1286" cy="908" r="11"/>
+     <text x="56" y="950" font-family="Archivo" font-weight="800" font-size="28" letter-spacing="4" fill="#ff2b14">LADO B · 33⅓ RPM</text>
+    </svg>
+    <div class="mtx meta">Escolha um disco<br>na prateleira</div>
+    <div class="pd" id="pd"></div>
+    <svg class="armv" viewBox="0 0 1350 1000" aria-hidden="true"><g id="armg">
+     <rect x="1140" y="40" width="60" height="70" rx="8" fill="#3a3a3a"/>
+     <polyline points="1170,110 1170,700 1140,770" fill="none" stroke="#d9d5cc" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+     <rect x="1106" y="752" width="56" height="44" rx="6" fill="#ff2b14" transform="rotate(25 1134 774)"/>
+     <circle cx="1170" cy="170" r="30" fill="#ff2b14"/><circle cx="1170" cy="170" r="10" fill="#0b0b0b"/></g></svg>
+   </div>
+   <div class="np"><p class="meta" style="margin:0">Na vitrola</p><h3 class="cx" id="npt">Nada ainda</h3><p id="npa">Clique numa capa lá em cima.</p><p id="npf"></p><button class="btn" id="npstop" type="button">▶ Tocar</button></div>
   </div>
  </div>
 </section>
@@ -355,7 +441,7 @@ let st;wall.addEventListener("scroll",()=>{clearTimeout(st);st=setTimeout(()=>{c
 $("prev").onclick=()=>center(Math.max(0,cur-1));$("next").onclick=()=>center(Math.min(D.length-1,cur+1));
 
 /* ---- som de verdade: prévias de 30s pela busca do iTunes ---- */
-let ctx,master,timer,step=0,nextT=0,t0=0,nb;let real=null;const cache={};const au=$("au");
+let ctx,master,timer,step=0,nextT=0,t0=0,nb;let colOn=false;let real=null;const cache={};const au=$("au");
 function jsonp(url){return new Promise((res,rej)=>{const cb="lb"+Math.random().toString(36).slice(2),s=document.createElement("script");const done=()=>{clearTimeout(to);delete window[cb];s.remove()};const to=setTimeout(()=>{done();rej()},5000);window[cb]=x=>{done();res(x)};s.onerror=()=>{done();rej()};s.src=url+"&callback="+cb;document.head.appendChild(s)})}
 async function find(d,name){
  const key=d.a+"|"+name;if(cache[key]!==undefined)return cache[key];
@@ -367,10 +453,10 @@ async function find(d,name){
 (async()=>{
  try{const h=await find(D[0],D[0].tr[0]);real=!!h;}catch(e){real=false}
  $("mode").textContent=real?"Prévias de 30s via Apple Music.":"Sem conexão com o Apple Music agora, então toca uma trilha sintetizada.";
- if(real){for(const d of D){try{const h=await find(d,d.tr[0]);if(h&&h.artworkUrl100)d.art=h.artworkUrl100.replace("100x100bb","600x600bb")}catch(e){}}drawWall();show(cur,true);drawRecs();drawStack()}
+ if(real){for(const d of D){try{const h=await find(d,d.tr[0]);if(h&&h.artworkUrl100)d.art=h.artworkUrl100.replace("100x100bb","600x600bb")}catch(e){}}drawWall();show(cur,true);drawRecs();drawStack();fetchArt()}
 })();
 async function start(){
- stopSynth();au.pause();setUI(true);
+ colStop();stopSynth();au.pause();setUI(true);
  const d=D[cur];if(!real){synth();return}
  try{const h=await find(d,d.tr[track]);if(h&&h.previewUrl){au.src=h.previewUrl;await au.play();return}}catch(e){}
  synth();
@@ -378,12 +464,13 @@ async function start(){
 function stopAll(){au.pause();stopSynth();setUI(false)}
 function toggle(){playing=!playing;playing?start():stopAll()}
 function next(){track=(track+1)%3;if(track===0){const n=(cur+1)%D.length;center(n);show(n);}renderTracks();start()}
-au.addEventListener("ended",next);
+au.addEventListener("ended",()=>colOn?colNext():next());
 function setUI(on){document.body.classList.toggle("playing",on);$("play").textContent=on?"❚❚ Pausar":"▶ Tocar";$("hplay").textContent=on?"❚❚ Pausar":"▶ Tocar agora";
  $("mp").classList.toggle("show",on);$("mpt").textContent=D[cur].tr[track];$("mpa").textContent=D[cur].a+" · "+D[cur].t;$("mpd").innerHTML=disc(D[cur],true)}
-$("play").onclick=toggle;$("mpp").onclick=toggle;$("hplay").onclick=toggle;
+$("play").onclick=toggle;$("mpp").onclick=()=>colOn?colStop():toggle();$("hplay").onclick=toggle;
 function fmt(s){return "0:"+String(Math.floor(s)).padStart(2,"0")}
-(function tick(){let e=0,L=30;if(!au.paused){e=au.currentTime;L=au.duration||30}else if(ctx&&timer){e=ctx.currentTime-t0;if(e>=30){next();}}
+(function tick(){let e=0,L=30;if(!au.paused){e=au.currentTime;L=au.duration||30}else if(ctx&&timer){e=ctx.currentTime-t0;if(e>=30&&!colOn){next();}}
+ if(colOn)$("mpb").style.width=Math.min(100,e/L*100)+"%";
  if(playing){$("time").textContent=fmt(Math.min(e,L))+" / "+fmt(L);$("mpb").style.width=(e/L*100)+"%"}requestAnimationFrame(tick)})();
 
 /* fallback: synth de demonstração */
@@ -406,6 +493,92 @@ function synth(){unlockIOS();try{ctx=ctx||new (window.AudioContext||window.webki
  master=ctx.createGain();master.gain.value=.55;master.connect(ctx.createDynamicsCompressor()).connect(ctx.destination);
  step=0;nextT=ctx.currentTime+.05;t0=ctx.currentTime;timer=setInterval(()=>{while(nextT<ctx.currentTime+.12){note(step,nextT);nextT+=60/D[cur].bpm/4;step++}},25)}
 function stopSynth(){if(unl)unl.pause();clearInterval(timer);timer=null;if(master){const m=master;m.gain.setTargetAtTime(0,ctx.currentTime,.05);setTimeout(()=>m.disconnect(),400);master=null}}
+
+/* ---- minha coleção ---- */
+const COL0=[["Fleetwood Mac","Rumours"],["Michael Jackson","Off the Wall"]];
+const idOf=(a,t)=>(a+"|"+t).toLowerCase().replace(/\s+/g," ").trim();
+let cs={add:[],del:[]};try{const s=JSON.parse(localStorage.getItem("ladob-colecao"));if(s&&Array.isArray(s.add)&&Array.isArray(s.del))cs=s}catch(e){}
+let artc={};try{const s=JSON.parse(localStorage.getItem("ladob-capas"));if(s&&typeof s==="object")artc=s}catch(e){}
+const saveCol=()=>{try{localStorage.setItem("ladob-colecao",JSON.stringify(cs))}catch(e){}};
+const saveArt=()=>{try{localStorage.setItem("ladob-capas",JSON.stringify(artc))}catch(e){}};
+function colList(){const seen=new Set(),out=[];for(const [a,t] of [...COL0,...cs.add]){const id=idOf(a,t);if(seen.has(id)||cs.del.includes(id))continue;seen.add(id);out.push({id,a,t})}return out}
+const hsh=s=>{let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;return h};
+const CV=[["#ff2b14","#0b0b0b"],["#f6f4ef","#0b0b0b"],["#0b0b0b","#f6f4ef"],["#e8b04a","#0b0b0b"],["#f6f4ef","#ff2b14"],["#0b0b0b","#ff2b14"]];
+const VC=["#0c0c0d","#0c0c0d","#0c0c0d","#8e0f16","#d9a514","#4f6476"];
+function colDisc(it){const h=hsh(it.id),[bg,fg]=CV[h%CV.length];return {a:it.a,t:it.t,y:"MINHA COLEÇÃO",v:VC[(h>>3)%VC.length],L:[bg,fg,"#1d3cf0"],art:artc[it.id]?artc[it.id].art:null}}
+const wc=$("wallc"),tt=$("tt"),pd=$("pd");let onId=null,busy=false,colTracks=[],colK=0;
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function lpItem(it){const d=colDisc(it),[bg,fg]=CV[hsh(it.id)%CV.length];
+ return `<div class="lp${it.id===onId?' out':''}"><button class="lpb" data-id="${esc(it.id)}" aria-label="Tocar ${esc(it.t)}, de ${esc(it.a)}"><span class="lpd">${disc(d)}</span><span class="cv" style="background:${bg};color:${fg}"><span class="meta">${esc(it.a)}</span><b class="cx" style="font-size:calc(var(--cw)*${Math.min(.19,1.55/Math.max(...it.t.split(/\s+/).map(w=>w.length))).toFixed(3)})">${esc(it.t)}</b>${d.art?`<img src="${esc(d.art)}" alt="" loading="lazy" onerror="this.remove()">`:""}</span></button><button class="x" type="button" data-del="${esc(it.id)}" aria-label="Tirar ${esc(it.t)} da prateleira">×</button><p class="cap"><b>${esc(it.t)}</b><span>${esc(it.a)}</span></p></div>`}
+function drawCol(){
+ const L=colList();$("cn").textContent="Nº "+String(L.length).padStart(2,"0")+(L.length===1?" disco":" discos");
+ const cw=Math.round(Math.min(200,Math.max(104,innerWidth*.15)));wc.style.setProperty("--cw",cw+"px");
+ const n=Math.max(2,Math.floor((wc.clientWidth-20+18)/(cw*1.42+18)));
+ const rows=[];for(let i=0;i<Math.max(L.length,1);i+=n)rows.push(L.slice(i,i+n));
+ wc.innerHTML=rows.map(r=>`<div class="lrow">${r.map(lpItem).join("")||'<p class="lempty">Prateleira vazia. Põe o primeiro disco aí em cima.</p>'}<div class="ledge"><i></i><i></i></div></div>`).join("");
+}
+const nrm=s=>s.toLowerCase().normalize("NFD").replace(/[^a-z0-9]/g,"");
+async function fetchOne(it){
+ const r=await jsonp("https://itunes.apple.com/search?country=BR&entity=album&limit=10&term="+encodeURIComponent(it.a+" "+it.t));
+ const A=nrm(it.a).slice(0,5),T=nrm(it.t).slice(0,6);
+ const hit=r.results.find(x=>nrm(x.artistName).includes(A)&&nrm(x.collectionName).includes(T))||r.results.find(x=>nrm(x.artistName).includes(A)&&T&&nrm(x.collectionName).startsWith(T.slice(0,3)));
+ artc[it.id]=hit?{art:hit.artworkUrl100.replace("100x100bb","600x600bb"),cid:hit.collectionId}:null;saveArt();
+}
+let fetching=false;
+async function fetchArt(){if(real!==true||fetching)return;fetching=true;
+ for(const it of colList()){if(artc[it.id]!==undefined)continue;try{await fetchOne(it)}catch(e){break}drawCol()}fetching=false}
+async function load(id){
+ if(busy)return;if(id===onId){colOn?colStop():colPlay();return}
+ const it=colList().find(x=>x.id===id);if(!it)return;busy=true;
+ if(playing){playing=false;stopAll()}colStop();
+ const btn=wc.querySelector(`.lpb[data-id="${CSS.escape(id)}"]`),r0=btn.querySelector(".lpd").getBoundingClientRect(),d=colDisc(it);
+ if(onId&&pd.firstChild&&!rm){tt.classList.remove("on");await pd.animate([{opacity:1,transform:"none"},{opacity:0,transform:"scale(.85)"}],{duration:280,easing:"ease-in"}).finished}
+ pd.innerHTML="";onId=id;colTracks=[];colK=0;
+ wc.querySelectorAll(".lp").forEach(el=>el.classList.toggle("out",el.querySelector(".lpb").dataset.id===id));
+ $("npt").textContent=it.t;$("npa").textContent=it.a;$("npf").textContent="Tirando da capa…";
+ if(!rm){
+  const fly=document.createElement("div");fly.className="fly";fly.innerHTML=disc(d,true);
+  Object.assign(fly.style,{left:r0.left+"px",top:r0.top+"px",width:r0.width+"px",height:r0.height+"px"});document.body.append(fly);
+  await fly.animate([{transform:"none"},{transform:`translate(${r0.width*.7}px,${-r0.height*.1}px) rotate(50deg)`}],{duration:480,easing:"cubic-bezier(.3,.7,.3,1)",fill:"forwards"}).finished;
+  const p0=pd.getBoundingClientRect();
+  if(p0.top<70||p0.bottom>innerHeight){tt.scrollIntoView({behavior:"smooth",block:"center"});await wait(750)}
+  const a=fly.getBoundingClientRect(),b=pd.getBoundingClientRect();
+  fly.getAnimations().forEach(x=>x.cancel());Object.assign(fly.style,{left:a.left+"px",top:a.top+"px",width:a.width+"px",height:a.height+"px"});
+  const dx=b.left+b.width/2-(a.left+a.width/2),dy=b.top+b.height/2-(a.top+a.height/2),k=b.width/a.width,lift=Math.max(120,Math.abs(dy)*.25);
+  await fly.animate([{transform:"rotate(50deg)"},{transform:`translate(${dx*.5}px,${dy*.5-lift}px) scale(${(1+k)/2}) rotate(220deg)`,offset:.5},{transform:`translate(${dx}px,${dy}px) scale(${k}) rotate(410deg)`}],{duration:1000,easing:"cubic-bezier(.45,.05,.35,1)",fill:"forwards"}).finished;
+  pd.innerHTML=disc(d,false);fly.remove();
+ }else pd.innerHTML=disc(d,false);
+ tt.classList.add("has");busy=false;colPlay();
+}
+function setNow(s,m){$("npf").textContent=s;$("mpt").textContent=m||s}
+async function colPlay(){
+ const it=colList().find(x=>x.id===onId);if(!it)return;
+ colOn=true;tt.classList.add("on");$("npstop").textContent="■ Parar";
+ $("mp").classList.add("show");$("mpd").innerHTML=disc(colDisc(it),true);$("mpa").textContent=it.a+" · "+it.t;setNow("Agulha descendo…");
+ await wait(rm?0:800);if(!colOn||onId!==it.id)return;
+ try{if(real!==false){
+  if(!colTracks.length){if(artc[it.id]===undefined)await fetchOne(it);const c=artc[it.id];
+   if(c&&c.cid){const r=await jsonp(`https://itunes.apple.com/lookup?country=BR&entity=song&id=${c.cid}`);colTracks=r.results.filter(x=>x.wrapperType==="track"&&x.previewUrl).sort((p,q)=>(p.discNumber-q.discNumber)||(p.trackNumber-q.trackNumber))}
+   drawCol()}
+  const tr=colTracks[colK%Math.max(1,colTracks.length)];
+  if(tr&&colOn&&onId===it.id){au.src=tr.previewUrl;await au.play();setNow((tr.trackNumber||colK+1)+". "+tr.trackName);return}}
+ }catch(e){}
+ if(!colOn||onId!==it.id)return;synth();setNow("Sem prévia desse disco agora. Toca a trilha sintetizada.","Trilha sintetizada");
+}
+function colNext(){colK++;colPlay()}
+function colStop(){if(!colOn)return;colOn=false;au.pause();stopSynth();tt.classList.remove("on");$("npstop").textContent="▶ Tocar";$("mp").classList.remove("show");$("mpb").style.width="0"}
+function clearDeck(){colStop();onId=null;pd.innerHTML="";tt.classList.remove("has");$("npt").textContent="Nada ainda";$("npa").textContent="Clique numa capa lá em cima.";$("npf").textContent=""}
+$("npstop").onclick=()=>{if(!onId){wc.scrollIntoView({block:"center"});return}colOn?colStop():colPlay()};
+wc.addEventListener("click",e=>{
+ const x=e.target.closest(".x");
+ if(x){const id=x.dataset.del;cs.add=cs.add.filter(([a,t])=>idOf(a,t)!==id);if(COL0.some(([a,t])=>idOf(a,t)===id)&&!cs.del.includes(id))cs.del.push(id);saveCol();if(id===onId)clearDeck();drawCol();return}
+ const b=e.target.closest(".lpb");if(!b||wc.classList.contains("edit"))return;load(b.dataset.id)});
+$("addf").addEventListener("submit",e=>{e.preventDefault();const f=e.target.elements,a=f.a.value.trim(),t=f.t.value.trim();if(!a||!t)return;
+ const id=idOf(a,t);cs.del=cs.del.filter(x=>x!==id);if(!colList().some(x=>x.id===id))cs.add.push([a,t]);saveCol();e.target.reset();f.a.focus();drawCol();toast(4,"Na prateleira",t+", de "+a+".");fetchArt()});
+$("edc").onclick=()=>{const on=wc.classList.toggle("edit");$("edc").setAttribute("aria-pressed",on);$("edc").textContent=on?"Pronto":"Editar"};
+$("cpy").onclick=()=>{const txt=colList().map(x=>x.a+" — "+x.t).join("\n");(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast(4,"Copiado","Lista da coleção copiada.")).catch(()=>prompt("Copie a lista:",txt))};
+let rzt;addEventListener("resize",()=>{clearTimeout(rzt);rzt=setTimeout(drawCol,150)});
+drawCol();
 
 /* ---- pra você ---- */
 const R=[[8,"Porque você ouve Depeche Mode","O disco que levou eles pros estádios."],[10,"Pro lado dançante do Depeche","Synth frio, baixo melódico."],[9,"Synth com melancolia","Guitarras em camadas, clima de madrugada."],[11,"Se você curte The Police","Pop épico, refrões enormes, letras pesadas."],[12,"Se Rebel Yell é o seu lado rock","Pós-punk com orquestra."]];

@@ -16,6 +16,8 @@ python3 -m http.server 8000
 - **Prateleira:** carrossel de discos em perspectiva (inspirado em a24.raviklaassens.com), com créditos e 3 faixas por álbum
 - **Discos em SVG:** vinil colorido, sulcos, reflexo e selo com listras anos 70. Quando a capa real carrega, ela vira o selo
 - **Música:** prévias de 30s pela iTunes Search API (JSONP, sem chave). Se a busca falhar, entra uma trilha sintetizada em Web Audio
+- **Minha coleção:** prateleiras de acrílico com os discos de casa. Clicar na capa tira o disco, leva pro toca-discos e toca a prévia do álbum. Os discos fixos ficam em `COL0` no `index.html`; os adicionados pelo formulário ficam no localStorage do aparelho
+- **Onde ouvir:** checklist dos lugares de SP (salvo no aparelho)
 - **Mini player fixo** embaixo da tela enquanto toca
 - **Seções:** Pra você, Vitrine (Edifier e Retrôaudiolab, com links), Casarão do Vinil, 7 bares de audição (lista da CNN Brasil), Do arquivo, Agenda (artistas seguidos ficam salvos no localStorage)
 - **Notificações:** toasts e o painel do sininho
